@@ -1,0 +1,16 @@
+<div modal="showModal" close="cancel()">
+    <div class="modal-header">
+        <h4>Update</h4>
+    </div>
+    <div class="modal-body">
+        <form>
+          Firstname:<input type="textbox" ng-model="firstName"/><br/>
+          Lastname:<input type="textbox" ng-model="lastName"/><br/>
+          Hobby:<input type="textbox" ng-model="hobby"/><br/>
+        </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-success" ng-click="ok()">Okay</button>
+      <button class="btn" ng-click="exit()">Cancel</button>
+    </div>
+  </div>
