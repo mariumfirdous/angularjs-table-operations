@@ -72,6 +72,15 @@ app.controller('listdata',function($scope, $uibModal){
     });
   }
 
+  $scope.add = function (){
+    $scope.addInstance=$uibModal.open({
+      templateUrl:"add.html",
+      controller:"AddInstanceCtrl",
+      scope:$scope
+      
+    });
+  }
+
   $scope.searchIndex = function(id){
     for(i=0;i<$scope.users.length;i++){
       if(id==$scope.users[i].id){
@@ -99,6 +108,44 @@ app.controller('EditInstanceCtrl',function($scope){
 
     $scope.editInstance.close();
   }
+});
+app.controller('AddInstanceCtrl',function($scope){
+  console.log("1");
+  $scope.firstName;
+  console.log("2");
+  $scope.lastName;
+  console.log("3");
+  $scope.hobby;
+  console.log("4");
+  $scope.id;
+  console.log("5");
+  
+
+  $scope.exit = function(){
+    $scope.addInstance.close();
+  }
+
+  $scope.ok =function() {
+    newVar = {
+      "id":$scope.id,
+      "first_name":$scope.firstName,
+      "last_name":$scope.lastName,
+      "hobby":$scope.hobby
+    }
+    $scope.newID=$scope.searchIndex($scope.id);
+console.log("newID");
+    if ($scope.newID==-1){
+      console.log("138");
+      $scope.users.push(newVar);
+      console.log("140");
+      $scope.addInstance.close();
+    } 
+    else {
+
+      $scope.msg = 'duplicate id';
+  }
+  
+}
 });
 
 app.controller('ModalInstanceCtrl', function ($scope) {
